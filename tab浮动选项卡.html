@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>原生tab选项卡</title>
+		<style>
+			#tab{
+				position: relative;
+				width: 600px;
+			}/*定义子类div参考定位*/
+			#tab div{
+				float:left;
+				width: 600px;
+			}
+			#tab div{display: none;}
+			#tab h3{float: left;width:90px; height:26px;text-align: center; cursor: pointer;padding: 0; margin: 0;border:1px solid antiquewhite; }
+			#tab .block{display: block;}
+			#tab .up{background: #FAEBD7;}
+			#tab h3:hover{ background: #FAEBD7;}
+		</style>
+	</head>
+	<body>
+		<div id="tab">
+			<h3 class="up" onclick="go_to(1)">选择一</h3>
+			<h3 onclick="go_to(2)">选择二</h3>
+			<h3 onclick="go_to(3)">选择三</h3>
+			<div class="block">
+				<ul>
+					<li>这里是选项卡一</li>
+					<li>这里是选项卡一</li>
+					<li>这里是选项卡一</li>
+					<li>这里是选项卡一</li>
+					<li>这里是选项卡一</li>
+					<li>这里是选项卡一</li>
+				</ul>
+			</div>
+			
+			
+			<div >
+				<ul>
+					<li>这里是选项卡2</li>
+					<li>这里是选项卡2</li>
+					<li>这里是选项卡2</li>
+					<li>这里是选项卡2</li>
+					<li>这里是选项卡2</li>
+					<li>这里是选项卡2</li>
+					<li>这里是选项卡2</li>
+					
+				</ul>
+			</div>
+			
+		
+			<div>
+				<ul>
+					<li>这里是选项卡3</li>
+					<li>这里是选项卡3</li>
+					<li>这里是选项卡3</li>
+					<li>这里是选项卡3</li>
+					<li>这里是选项卡3</li>
+					<li>这里是选项卡3</li>
+				</ul>
+			</div>
+		</div>
+		<script type="text/javascript">
+			var h=document.getElementById("tab").getElementsByTagName("h3");/*此时h是数组*/
+			var d=document.getElementById("tab").getElementsByTagName("div");/*此时d是文档内"tab.div"所有的数组*/
+			function go_to(ao){
+				for(var i=0; i<h.length;i++){						/*对h进行遍历选项卡的多少*/
+					if(ao-1==i){									/*选项卡条件触发*/
+						h[i].className+="up";                       /*给对应的选项卡加属性*/
+						d[i].className+="block";
+					}
+					else{
+						h[i].className="";
+						d[i].className="";
+					}
+				}
+			}
+		</script>
+	</body>
+</html>
